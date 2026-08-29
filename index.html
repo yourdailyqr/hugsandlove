@@ -106,16 +106,35 @@
     gap: 18px;
   }
   .navArrow {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30px;
-    color: #2A1507;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     user-select: none;
-    padding: 4px 10px;
+  }
+  .navArrow::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+  }
+  #prevBtn::before {
+    border-right: 13px solid #2A1507;
+  }
+  #nextBtn::before {
+    border-left: 13px solid #2A1507;
   }
   .navArrow.disabled {
-    color: rgba(42, 21, 7, 0.25);
     cursor: default;
+  }
+  #prevBtn.disabled::before {
+    border-right-color: rgba(42, 21, 7, 0.25);
+  }
+  #nextBtn.disabled::before {
+    border-left-color: rgba(42, 21, 7, 0.25);
   }
   #navLabel {
     font-family: 'Sacramento', cursive;
@@ -224,9 +243,9 @@
     <div class="divider"></div>
     <div id="footer">
       <div id="navRow">
-        <span class="navArrow" id="prevBtn">&#9664;</span>
+        <span class="navArrow" id="prevBtn"></span>
         <span id="navLabel">today</span>
-        <span class="navArrow" id="nextBtn">&#9654;</span>
+        <span class="navArrow" id="nextBtn"></span>
       </div>
       <div id="footerUrl">www.yourdailyqr.com</div>
     </div>
